@@ -3,6 +3,9 @@ const bodyParser = require('body-parser');
 const errorHandler = require('./middlewares/errorHandler');
 const getAllTalkers = require('./middlewares/getAllTalkers');
 const getTalkerById = require('./middlewares/getTalkerById');
+const loginHandler = require('./middlewares/loginHandler');
+const validateEmail = require('./middlewares/validateEmail');
+const validatePassword = require('./middlewares/validatePassword');
 
 const app = express();
 app.use(bodyParser.json());
@@ -18,6 +21,8 @@ app.get('/', (_request, response) => {
 app.get('/talker', getAllTalkers);
 
 app.get('/talker/:id', getTalkerById);
+
+app.post('/login', validateEmail, validatePassword, loginHandler);
 
 app.use(errorHandler);
 
