@@ -1,7 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const errorHandler = require('./middlewares/errorHandler');
-const getTalkers = require('./middlewares/getTalkers');
+const getAllTalkers = require('./middlewares/getAllTalkers');
+const getTalkerById = require('./middlewares/getTalkerById');
 
 const app = express();
 app.use(bodyParser.json());
@@ -14,7 +15,9 @@ app.get('/', (_request, response) => {
   response.status(HTTP_OK_STATUS).send();
 });
 
-app.get('/talker', getTalkers);
+app.get('/talker', getAllTalkers);
+
+app.get('/talker/:id', getTalkerById);
 
 app.use(errorHandler);
 
