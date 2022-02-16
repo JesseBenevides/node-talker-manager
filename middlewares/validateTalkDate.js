@@ -6,7 +6,7 @@ const validateTalkDate = async (req, res, next) => {
 
     if (!isDateValid(watchedAt)) {
       return res.status(400).json({
-        message: 'O campo "watchedAt" deve ter o formato "dd/mm/aaaa',
+        message: 'O campo "watchedAt" deve ter o formato "dd/mm/aaaa"',
       });
     }
     return next();
