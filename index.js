@@ -6,6 +6,13 @@ const getTalkerById = require('./middlewares/getTalkerById');
 const loginHandler = require('./middlewares/loginHandler');
 const validateEmail = require('./middlewares/validateEmail');
 const validatePassword = require('./middlewares/validatePassword');
+const createTalker = require('./middlewares/createTalker');
+const validateTalkerName = require('./middlewares/validateTalkerName');
+const validateTalkerAge = require('./middlewares/validateTalkerAge');
+const validateToken = require('./middlewares/validateToken');
+const validateTalkInfos = require('./middlewares/validateTalkInfos');
+const validateTalkDate = require('./middlewares/validateTalkDate');
+const validateTalkRate = require('./middlewares/validateTalkRate');
 
 const app = express();
 app.use(bodyParser.json());
@@ -23,6 +30,17 @@ app.get('/talker', getAllTalkers);
 app.get('/talker/:id', getTalkerById);
 
 app.post('/login', validateEmail, validatePassword, loginHandler);
+
+app.post(
+  '/talker',
+  validateToken,
+  validateTalkerName,
+  validateTalkerAge,
+  validateTalkInfos,
+  validateTalkDate,
+  validateTalkRate,
+  createTalker,
+);
 
 app.use(errorHandler);
 
