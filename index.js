@@ -14,6 +14,7 @@ const validateTalkInfos = require('./middlewares/validateTalkInfos');
 const validateTalkDate = require('./middlewares/validateTalkDate');
 const validateTalkRate = require('./middlewares/validateTalkRate');
 const editTalker = require('./middlewares/editTalker');
+const deleteTalker = require('./middlewares/deleteTalker');
 
 const app = express();
 app.use(bodyParser.json());
@@ -30,7 +31,12 @@ app.get('/talker', getAllTalkers);
 
 app.get('/talker/:id', getTalkerById);
 
-app.post('/login', validateEmail, validatePassword, loginHandler);
+app.post(
+  '/login',
+  validateEmail,
+  validatePassword,
+  loginHandler,
+);
 
 app.post(
   '/talker',
@@ -52,6 +58,12 @@ app.put(
   validateTalkDate,
   validateTalkRate,
   editTalker,
+);
+
+app.delete(
+  '/talker/:id',
+  validateToken,
+  deleteTalker,
 );
 
 app.use(errorHandler);
