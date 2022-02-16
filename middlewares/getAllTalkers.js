@@ -1,6 +1,6 @@
 const { readTalkers } = require('../utils/handleFiles');
 
-const getTalkers = async (_req, res, next) => {
+const getAllTalkers = async (_req, res, next) => {
   try {
     const talkerList = await readTalkers();
 
@@ -12,4 +12,4 @@ const getTalkers = async (_req, res, next) => {
   }
 };
 
-module.exports = getTalkers;
+module.exports = getAllTalkers;
