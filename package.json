@@ -1,7 +1,7 @@
 {
-  "name": "sd-0x-project-talker-manager",
+  "name": "project-talker-manager",
   "version": "1.0.0",
-  "description": "",
+  "description": "CRUD de palestrantes",
   "main": "index.js",
   "scripts": {
     "test": "jest --runInBand",
@@ -11,7 +11,7 @@
     "lint": "eslint --no-inline-config --no-error-on-unmatched-pattern -c .eslintrc.json ."
   },
   "keywords": [],
-  "author": "",
+  "author": "jesse-benevides",
   "license": "ISC",
   "dependencies": {
     "body-parser": "1.19.0",
